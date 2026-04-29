@@ -1,17 +1,33 @@
 <div align="center">
 
-# 🐍 Console Based Snake Game in C++
+<pre style="color: green; background-color: black;">
+███████╗███╗   ██╗ █████╗ ██╗  ██╗███████╗
+██╔════╝████╗  ██║██╔══██╗██║ ██╔╝██╔════╝
+███████╗██╔██╗ ██║███████║█████╔╝ █████╗  
+╚════██║██║╚██╗██║██╔══██║██╔═██╗ ██╔══╝  
+███████║██║ ╚████║██║  ██║██║  ██╗███████╗
+╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 
-### A classic arcade Snake Game built in terminal using arrays, loops, collision detection, and real-time keyboard controls.
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Classic+Snake+Game+in+C%2B%2B;Real-Time+Console+Rendering;Array+Based+Movement+Engine;Collision+Detection+%26+Food+Logic" />
+ ██████╗  █████╗ ███╗   ███╗███████╗
+██╔════╝ ██╔══██╗████╗ ████║██╔════╝
+██║  ███╗███████║██╔████╔██║█████╗  
+██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  
+╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
+ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
+</pre>
 
 <br>
 
 <img src="https://img.shields.io/badge/Language-C++-blue?style=for-the-badge">
 <img src="https://img.shields.io/badge/Platform-Windows%20Console-green?style=for-the-badge">
-<img src="https://img.shields.io/badge/Type-Arcade%20Game-orange?style=for-the-badge">
-<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge">
+<img src="https://img.shields.io/badge/Architecture-Procedural-orange?style=for-the-badge">
+<img src="https://img.shields.io/badge/Rendering-Real--Time-success?style=for-the-badge">
+
+# 🐍 Console Based Snake Game in C++
+
+### ⚡ A classic arcade Snake Game built in terminal using arrays, loops, collision detection, and real-time keyboard controls.
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Real-Time+Console+Game+Engine;Array-Based+Snake+Logic;Smooth+Rendering+Loop;Collision+Detection+System" />
 
 </div>
 
@@ -23,27 +39,19 @@ This project is a **console-based implementation of the classic Snake Arcade Gam
 
 The game executes entirely inside the terminal and demonstrates:
 
-- real-time keyboard event handling,
-- frame-based rendering,
-- snake body movement using arrays,
-- random food generation,
-- score management,
-- wall and self collision detection,
-- restart and quit controls.
+* ⚡ Real-time keyboard event handling
+* 🎮 Frame-based rendering loop
+* 🐍 Snake body movement using arrays
+* 🍎 Random food generation
+* 💥 Collision detection (wall + self)
+* 📊 Score tracking and HUD display
+* 🔁 Restart and exit controls
 
-It is a strong beginner-to-intermediate systems programming project that builds confidence in low-level game logic without external graphics libraries.
+> No external libraries — pure system-level programming.
 
 ---
 
 ## 🎮 Live Gameplay Preview
-
-<p align="center">
-  <img src="snake_preview.png" width="900">
-</p>
-
----
-
-## 🐍 GitHub Contribution Snake
 
 <p align="center">
   <picture>
@@ -69,9 +77,123 @@ It is a strong beginner-to-intermediate systems programming project that builds 
 
 ---
 
-## 🧠 Core Programming Concepts Used
+## 🧠 Core Concepts
 
-### ✅ Arrays for Snake Body Coordinates
+### Snake Representation
 
 ```cpp
-int tailX[100], tailY[100];
+int snakeX[MAX_LENGTH], snakeY[MAX_LENGTH];
+```
+
+### Game Loop
+
+```cpp
+while (!gameOver)
+{
+    handleInput();
+    update();
+    draw();
+    Sleep(SPEED_MS);
+}
+```
+
+### Collision Detection
+
+* Boundary checks
+* Self overlap detection
+* Food consumption → growth
+
+---
+
+## ⚙️ Installation & Execution
+
+### Clone Repository
+
+```bash
+git clone https://github.com/arya-dev2005/Snake-Game.git
+```
+
+### Enter Folder
+
+```bash
+cd Snake-Game
+```
+
+### Compile
+
+```bash
+g++ snake_game.cpp -o snake_game
+```
+
+### Run
+
+```bash
+snake_game.exe
+```
+
+---
+
+## 🎮 Controls
+
+| Key   | Action     |
+| ----- | ---------- |
+| W / ↑ | Move Up    |
+| S / ↓ | Move Down  |
+| A / ← | Move Left  |
+| D / → | Move Right |
+| Q     | Quit       |
+| R     | Restart    |
+
+---
+
+## 🧱 Project Structure
+
+```
+Snake-Game/
+│── snake_game.cpp
+│── README.md
+│── snake_preview.png
+│── .github/
+│   └── workflows/
+│       └── snake.yml
+```
+
+---
+
+## ⚡ Technical Highlights
+
+* Efficient array-based snake movement
+* Non-blocking input handling
+* Flicker-free rendering using cursor control
+* Clean procedural design architecture
+
+---
+
+## 🚀 Future Improvements
+
+* 🎨 Themes / color modes
+* 🔊 Sound effects
+* 🧠 AI Snake mode
+* 🌐 Cross-platform support
+* 🧩 OOP-based refactor
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome.
+For major changes, please open an issue first.
+
+---
+
+## 📜 License
+
+This project is open-source under the **MIT License**.
+
+---
+
+<div align="center">
+
+### ⭐ If you like this project, give it a star!
+
+</div>
