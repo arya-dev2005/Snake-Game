@@ -4,16 +4,9 @@
 
 ### A classic arcade Snake Game built in terminal using arrays, loops, collision detection, and real-time keyboard controls.
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Classic+Snake+Game+in+CPP%2B%2B;Real-Time+Console+Rendering;Array+Based+Movement+Engine;Collision+Detection+%26+Food+Logic" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=Classic+Snake+Game+in+C%2B%2B;Real-Time+Console+Rendering;Array+Based+Movement+Engine;Collision+Detection+%26+Food+Logic" />
 
 <br>
-
-<img src="https://img.shields.io/github/stars/arya-dev2005/Snake-Game?style=for-the-badge">
-<img src="https://img.shields.io/github/forks/arya-dev2005/Snake-Game?style=for-the-badge">
-<img src="https://img.shields.io/github/repo-size/arya-dev2005/Snake-Game?style=for-the-badge">
-<img src="https://img.shields.io/github/last-commit/arya-dev2005/Snake-Game?style=for-the-badge">
-
-<br><br>
 
 <img src="https://img.shields.io/badge/Language-C++-blue?style=for-the-badge">
 <img src="https://img.shields.io/badge/Platform-Windows%20Console-green?style=for-the-badge">
