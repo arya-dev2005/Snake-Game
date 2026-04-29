@@ -12,7 +12,7 @@
 using namespace std;
 
 // ---------------- CONFIG ----------------
-const int WIDTH = 42;
+const int WIDTH = 50;
 const int HEIGHT = 20;
 const int MAX_LENGTH = WIDTH * HEIGHT;
 const int SPEED_MS = 115;
@@ -120,13 +120,13 @@ void showStartScreen()
     setColor(11);
     cout << "\n";
     cout << "  ╔══════════════════════════════════════════════════════════╗\n";
-    cout << "  ║                 PREMIUM CONSOLE EDITION                 ║\n";
+    cout << "  ║                 PREMIUM CONSOLE EDITION                  ║\n";
     cout << "  ╠══════════════════════════════════════════════════════════╣\n";
-    cout << "  ║  Objective : Eat food, grow longer, avoid collisions    ║\n";
-    cout << "  ║  Controls  : W A S D  or  Arrow Keys                    ║\n";
-    cout << "  ║  Quit      : Q                                          ║\n";
+    cout << "  ║  Objective : Eat food, grow longer, avoid collisions     ║\n";
+    cout << "  ║  Controls  : W A S D  or  Arrow Keys                     ║\n";
+    cout << "  ║  Quit      : Q                                           ║\n";
     cout << "  ╠══════════════════════════════════════════════════════════╣\n";
-    cout << "  ║              Press any key to start the game            ║\n";
+    cout << "  ║              Press any key to start the game             ║\n";
     cout << "  ╚══════════════════════════════════════════════════════════╝\n";
     setColor(7);
 
@@ -139,12 +139,27 @@ void draw()
 {
     gotoxy(0, 0);
 
-    printHeader();
+    setColor(11);
 
+    cout << "  ╔══════════════════════════════════════════════════════╗\n";
+    cout << "  ║                  SNAKE GAME                          ║\n";
+    cout << "  ╠══════════════════════════════════════════════════════╣\n";
+    cout << "  ║  Objective : Eat food, grow longer, avoid collisions ║\n";
+    cout << "  ╠══════════════════════════════════════════════════════╣\n  ║";
     setColor(14);
-    cout << "  SCORE: " << score
-         << "    LENGTH: " << snakeLength
-         << "    CONTROLS: W/A/S/D or ARROWS    QUIT: Q\n";
+    cout << " SCORE: ";
+
+    cout.width(5);
+    cout << left << score;
+
+    cout << " LENGTH: ";
+    cout.width(5);
+    cout << left << snakeLength;
+
+    cout << " MOVE: W/A/S/D    QUIT: Q " << " ";
+    setColor(11);
+    cout << "║\n";
+    cout << "  ╚══════════════════════════════════════════════════════╝\n";
     setColor(7);
 
     cout << "  ╔";
@@ -162,13 +177,7 @@ void draw()
             if (x == snakeX[0] && y == snakeY[0])
             {
                 setColor(10);
-
-                if (dir == UP) cout << "^";
-                else if (dir == DOWN) cout << "v";
-                else if (dir == LEFT) cout << "<";
-                else if (dir == RIGHT) cout << ">";
-                else cout << "@";
-
+                cout << "O";
                 setColor(7);
                 printed = true;
             }
@@ -179,8 +188,8 @@ void draw()
                 {
                     if (x == snakeX[i] && y == snakeY[i])
                     {
-                        setColor(2);
-                        cout << "■";
+                        setColor(10);
+                        cout << "o";
                         setColor(7);
                         printed = true;
                         break;
@@ -196,8 +205,7 @@ void draw()
                 printed = true;
             }
 
-            if (!printed)
-                cout << " ";
+            if (!printed) cout << " ";
         }
 
         cout << "║\n";
@@ -207,10 +215,9 @@ void draw()
     for (int i = 0; i < WIDTH; i++) cout << "═";
     cout << "╝\n";
 
-    setColor(8);
-    cout << "  Tip: Instant reverse movement is blocked to prevent unfair self-collision.\n";
-    setColor(7);
+    cout << "    Tip: Instant reverse movement is blocked.  \n";
 }
+
 
 // ---------------- INPUT ----------------
 void handleInput()
@@ -297,16 +304,64 @@ void showGameOver()
     system("cls");
     printHeader();
 
+    const int BOX_WIDTH = 58; // total inner width
+
     setColor(12);
+
     cout << "\n";
-    cout << "  ╔══════════════════════════════════════════════════════════╗\n";
-    cout << "  ║                       GAME OVER                         ║\n";
-    cout << "  ╠══════════════════════════════════════════════════════════╣\n";
-    cout << "  ║  Final Score  : " << score << "\n";
-    cout << "  ║  Snake Length : " << snakeLength << "\n";
-    cout << "  ╠══════════════════════════════════════════════════════════╣\n";
-    cout << "  ║              [R] Restart        [Q] Quit                ║\n";
-    cout << "  ╚══════════════════════════════════════════════════════════╝\n";
+
+    // Top border
+    cout << "  ╔";
+    for(int i = 0; i < BOX_WIDTH; i++) cout << "═";
+    cout << "╗\n";
+
+    // Title
+    string title = "GAME OVER";
+    int padding = (BOX_WIDTH - title.length()) / 2;
+
+    cout << "  ║";
+    for(int i = 0; i < padding; i++) cout << " ";
+    cout << title;
+    for(int i = 0; i < BOX_WIDTH - padding - title.length(); i++) cout << " ";
+    cout << "║\n";
+
+    // Divider
+    cout << "  ╠";
+    for(int i = 0; i < BOX_WIDTH; i++) cout << "═";
+    cout << "╣\n";
+
+    // Score line
+    string scoreLine = "Final Score : " + to_string(score);
+    cout << "  ║ " << scoreLine;
+    for(int i = 0; i < BOX_WIDTH - scoreLine.length() - 1; i++) cout << " ";
+    cout << "║\n";
+
+    // Length line
+    string lenLine = "Snake Length : " + to_string(snakeLength);
+    cout << "  ║ " << lenLine;
+    for(int i = 0; i < BOX_WIDTH - lenLine.length() - 1; i++) cout << " ";
+    cout << "║\n";
+
+    // Divider
+    cout << "  ╠";
+    for(int i = 0; i < BOX_WIDTH; i++) cout << "═";
+    cout << "╣\n";
+
+    // Controls
+    string control = "[R] Restart        [Q] Quit";
+    padding = (BOX_WIDTH - control.length()) / 2;
+
+    cout << "  ║";
+    for(int i = 0; i < padding; i++) cout << " ";
+    cout << control;
+    for(int i = 0; i < BOX_WIDTH - padding - control.length(); i++) cout << " ";
+    cout << "║\n";
+
+    // Bottom border
+    cout << "  ╚";
+    for(int i = 0; i < BOX_WIDTH; i++) cout << "═";
+    cout << "╝\n";
+
     setColor(7);
 }
 
@@ -325,9 +380,9 @@ int main()
 
         while (!gameOver)
         {
-            draw();
             handleInput();
             update();
+            draw();
             Sleep(SPEED_MS);
         }
 
